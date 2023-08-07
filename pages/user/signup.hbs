@@ -17,12 +17,16 @@
          <div class="mb-3 signupBox">
             <h3 class="text-center">Creat New Account</h3>
         <label for="exampleInputPassword1" class="form-label">Name</label>
-        <input type="name" name="name" class="form-control" id="Name" value="">
+        <input type="name" name="name" class="form-control" id="Name" onkeyup="validateName()" value="">
+        
+        
+      <p id="warning"></p>
     </div>
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" name="Email" class="form-control" id="Email" aria-describedby="emailHelp"value="">
+        <input type="email" name="Email" class="form-control" id="Email" onkeyup="validateEmail()" aria-describedby="emailHelp"value="">
         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    <p id="warningEmail"></p>
     </div>
     <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Password</label>
@@ -37,7 +41,7 @@
         <label class="form-check-label" for="exampleCheck1">Remember me</label>
     </div>
     <button type="submit" class="btn btn-primary submitBox"onclick="doSignup()">Submit</button>
-
+     
 
 </div>
 <div class="col-md-4"></div>

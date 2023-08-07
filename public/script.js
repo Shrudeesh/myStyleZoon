@@ -3,9 +3,8 @@ function doSignup(){
   let signData={}
   
 signData.Name=document.getElementById("Name").value
-if(Name){
-    
-}
+regex=/abc/
+
 signData.Email=document.getElementById("Email").value
 signData.Password=document.getElementById("Password").value
 signData.confirmPassword=document.getElementById("confirmPassword").value
@@ -52,4 +51,27 @@ fetch('/login',{
     }
 
 })
+}
+
+function validateName(){
+    let text =document.getElementById("Name").value
+    regex=/^[a-zA-Z]+$/
+if(regex.test(text)){
+    document.getElementById('warning').innerHTML="success"
+    document.getElementById('warning').style.color="green"
+}else{
+    document.getElementById('warning').innerHTML="success"
+    document.getElementById('warning').style.color="red"
+}
+}
+function validateEmail(){
+    let text =document.getElementById("Email").value
+    regex=/^([a-zA-Z0-9_)]+)@([a-zA-Z0-9_-]{2,9})([a-z]{2,6})$/
+if(regex.test(text)){
+    document.getElementById('warningEmail').innerHTML=""
+    document.getElementById('warningEmail').style.color="green"
+}else{
+    document.getElementById('warningEmail').innerHTML="success"
+    document.getElementById('warningEmail').style.color="red"
+}
 }
