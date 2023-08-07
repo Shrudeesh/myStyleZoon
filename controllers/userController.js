@@ -1,13 +1,12 @@
- const { response } = require('express')
 const mongoose=require('mongoose')
  const USER=require('../models/userModel.js').users
 
 
 const loginPage=((req,res)=>{
- res.render('login.hbs')
+ res.render('user/login.hbs')
 })
 const showSignup=((req,res)=>{
- res.render('signup.hbs')
+ res.render('user/signup.hbs')
 })
 
 const doSignup=(req,res)=>{
@@ -26,8 +25,8 @@ const doSignup=(req,res)=>{
 }
 
 const doLogin=(req,res)=>{
-   console.log(res.body,"*******");
-USER.find({email:req.body.email,password:req.body.password}).then((response)=>{
+USER.find({Email:req.body.email,Password:req.body.password}).then((response)=>{
+   console.log(response);
    if(response.length > 0){
       res.json({login:true})
    }else{
@@ -36,4 +35,8 @@ USER.find({email:req.body.email,password:req.body.password}).then((response)=>{
 })
 }
 
-module.exports={doSignup,loginPage,showSignup,doLogin}
+const homePage=(req,res)=>{
+   res.render('user/home.hbs')
+}
+
+module.exports={doSignup,loginPage,showSignup,doLogin,homePage}

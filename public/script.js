@@ -3,6 +3,9 @@ function doSignup(){
   let signData={}
   
 signData.Name=document.getElementById("Name").value
+if(Name){
+    
+}
 signData.Email=document.getElementById("Email").value
 signData.Password=document.getElementById("Password").value
 signData.confirmPassword=document.getElementById("confirmPassword").value
@@ -35,8 +38,18 @@ fetch('/login',{
     },
       body:JSON.stringify(loginData)
 }).then((response)=>response.json())
+
  .then(data=>{
-    console.log(data);
+    location.assign('/home')
+   
+    if(data.login){
+
+    }else{
+        document.getElementById('warning').innerHTML="invalid input"
+    setTimeout(()=>{
+        document.getElementById('warning').innerHTML=""
+    },2000)    
+    }
 
 })
 }

@@ -1,11 +1,13 @@
 
 .loginBox{
-
-  padding-top: 35px;
+ 
+  padding-top: 85px;
+  border-radius: 2px solid;
 }
 
 .submitBox{
   width: 100%;
+  border-radius: 89px;
 
 }
 
@@ -16,4 +18,16 @@
       .Box1{
         margin-left: 69px;
         font-size: larger;
+      }
+      .validate{
+        color: red;
+      }
+      .signupBox{
+        padding-top: 35px;
+      }
+      .form-control{
+        border-radius: 25% ;
+         border: 1px solid;
+           padding: 10px;
+  box-shadow: 5px 7px #888888;
       }
