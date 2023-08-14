@@ -15,6 +15,7 @@
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-5">
+                <form action="">
                 <div class="mb-3">
                     <h3 class="text-center" style="padding: 26px;">Please Login</h3>
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -28,10 +29,11 @@
                         placeholder="enter your password " value="">
                 </div>
 
-                <button type="submit" class="btn btn-primary submitBox1" style="width:100%;" onclick="doSubmit()" >
+                <button type="submit" class="btn btn-primary submitBox1" style="width:100%;" onsubmit="doSubmit()" >
                     Login</button> <br>
                 <p id="warning" class="validate"></p>
             </div>
+            </form>
             <div class="col-md-4"></div>
         </div>
     </div>

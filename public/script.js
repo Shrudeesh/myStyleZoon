@@ -3,8 +3,6 @@ function doSignup(){
   let signData={}
   
 signData.Name=document.getElementById("Name").value
-regex=/abc/
-
 signData.Email=document.getElementById("Email").value
 signData.Password=document.getElementById("Password").value
 signData.confirmPassword=document.getElementById("confirmPassword").value

@@ -21,4 +21,4 @@ app.use('/',user)
 app.use('/admin',admin)
 
 
-app.listen(7000)
+app.listen(7001)

@@ -4,14 +4,15 @@ function doSubmit(){
   submitData.email=document.getElementById("email").value
   submitData.password=document.getElementById("password").value
  
-  fetch('/http://localhost:7000/admin/login/some/path/to/json',{
+  fetch('/home',{
     method:"post",
     headers:{
         "Content-Type":"application/json"
     },
     body:JSON.stringify(submitData)
 }).then(response => response.json())
- .then((data)=>{
+ .then(data=>{
+     location.assign('/upload')
     console.log(data);
 
  })
@@ -22,6 +23,7 @@ function doSubmit(){
 const showImages =()=>{
     const images=document.getElementById('imageInput')
     const imagePreview=document.getElementById('imagePreview')
+    document.getElementById('imagePreview').innerHTML=null
     const selectedImage=images.files
     for (let i = 0; i < selectedImage.length; i++) {
         const image=document.createElement('img')
