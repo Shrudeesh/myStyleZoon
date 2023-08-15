@@ -1,6 +1,6 @@
 
 const express=require('express')
-const {loginPage,uploadPage,doSubmit}=require('../controllers/adminController')
+const {loginPage,uploadPage,doSubmit,createBlog}=require('../controllers/adminController')
 const router=express.Router()
 
 router.get('/',(req,res)=>{
@@ -10,5 +10,5 @@ router.get('/',(req,res)=>{
 router.get('/login',loginPage)
 router.get('/upload',uploadPage)
 router.post('/admin',doSubmit)
-
+router.post('/createBlog',createBlog)
 module.exports=router

@@ -1,5 +1,7 @@
-const { response } = require('express')
-const mongoose=require('mongoose')
+const multer = require('multer');
+
+const BLOGS=require('../models/blogSchema')
+
 
 
 const loginPage=(req,res)=>{
@@ -11,14 +13,31 @@ const uploadPage=(req,res)=>{
 }
 
 const doSubmit=(req,res)=>{
-  USER.find({Email:req.body.email,Password:req.body.password}).then((response)=>{
-   console.log(response);
-   if(response.length > 0){
-      res.json({login:true})
-   }else{
-      res.json({login:false})
-   }
-})
 }
 
-module.exports={loginPage,uploadPage,doSubmit}
+const createBlog=(req,res)=>{
+   const fileStorage=multer.diskStorage({
+      destination:(req,file,cb)=>{
+         cb(null,"public/uploads");
+      },
+      filename:(req,files,cb)=>{
+         cb(null,Date.now()+"-"+files.originalname)
+      }
+   })
+   const upload=multer({storage:fileStorage}).array("images",4)
+   upload(req,res,(err)=>{
+      console.log(req.files)
+
+    BLOGS({
+      heading:req.body.category,
+      content:req.body.content,
+      Images:req.files,
+   
+   }).save().then(response=>{
+      res.redrict("/admin/upload")
+   })
+
+   })
+}
+
+module.exports={loginPage,uploadPage,doSubmit,createBlog}
